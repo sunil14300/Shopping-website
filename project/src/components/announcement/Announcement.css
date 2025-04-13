@@ -1,0 +1,37 @@
+.announcement-container {
+  height: 40px;
+  background-color: teal;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  animation: scroll-left 10s linear infinite;
+}
+
+.announcement-container h1 {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 768px) {
+  .announcement-container h1 {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0;
+    margin-left: 20px;
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
