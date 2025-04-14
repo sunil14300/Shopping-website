@@ -11,12 +11,12 @@ const AuthRouter = require("./router/routes");
 const PORT = process.env.PORT || 8080;
 
 // ✅ Connect to MongoDB (Fixing Error Handling)
-mongoose.connect("mongodb://localhost:27017/Register", {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
-.then(() => console.log("MongoDB connected"))
-.catch((err) => console.error("MongoDB connection error:", err));
+.then(() => console.log("MongoDB Atlas connected"))
+.catch((err) => console.error("MongoDB Atlas connection error:", err));
 
 // ✅ Middleware (Placed in Correct Order)
 app.use(cors()); // First
