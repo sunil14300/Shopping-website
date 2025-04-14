@@ -1,25 +1,21 @@
-# Step 1: Use Node.js to build the React app
-FROM node:18 AS build
+# Step 1: Use Node.js base image
+FROM node:18
 
-# Set working directory inside the container
+# Step 2: Set working directory inside container
 WORKDIR /app
 
-# Copy package.json and install dependencies
+# Step 3: Copy package files and install dependencies
 COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy the entire project and build the React app
+# Step 4: Install nodemon globally (optional if it's a devDependency)
+RUN npm install -g nodemon
+
+# Step 5: Copy the rest of your project files
 COPY . .
-RUN npm run build
 
-# Step 2: Use Nginx to serve the built React app
-FROM nginx:alpine
+# Step 6: Expose the port your app uses (update if needed)
+EXPOSE 3000
 
-# Copy built files to Nginx's HTML directory
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Expose port 80 for serving the React app
-EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Step 7: Default command to run your app using nodemon
+CMD ["nodemon", "index.js"]
