@@ -75,15 +75,15 @@ const Navbar = () => {
               </>
             ) : (
               <li className="nav-item dropdown">
-                <button
-  className="nav-link dropdown-toggle btn btn-link"
-  id="userDropdown"
-  data-bs-toggle="dropdown"
-  aria-expanded="false"
-  style={{ textDecoration: 'none' }}
->
-  {username}
-</button>
+              <button
+              className="nav-link dropdown-toggle btn btn-link"
+              id="userDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style={{ textDecoration: 'none' }}
+              >
+              {username}
+              </button>
 
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                   <li>
